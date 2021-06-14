@@ -1,38 +1,125 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif; 
+}
+
+body {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: rgba(44, 56, 130, 0.5);
+  font-weight: 400;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.button__zurueck {
+  border: none;
+  background-color: unset;
+  float: left;
+  font-size: 2em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button__zurueck:hover,
+.button__zurueck:focus {
+  cursor: pointer;
+  color:rgb(44, 56, 130);
+}
+
+.button__weiter {
+  border: none;
+  border-radius: 10px;
+  color: #FFFFFF;
+  background-color: salmon;
+  padding: 1em 3em;
+  font-size: 1.2em;
+}
+
+.button__weiter:hover,
+.button__weiter:focus {
+  background-color: sandybrown;
+  cursor: pointer;
+}
+
+.button__weiter:disabled {
+  background-color: gray;
+}
+
+
+/*=======================
+      GEBURTSTAG
+========================*/
+.geburtstags__form {
+  width: 400px;
+  margin: 4em auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.geburtstags__form input {
+  width: 100px;
+  text-align: center;
+  padding: 1em;
+  border-radius: 1em;
+  border: 2px solid rgb(44, 56, 130);
+  color:rgb(44, 56, 130);
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.geburtstags__form .geburtstags__input--kurz {
+  padding: 1em 0.2em;
+}
+
+.input__error {
+  border-color: red;
+}
+
+
+/*=======================
+      Infobox
+========================*/
+.info__container {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  margin: 4em auto;
+  text-align: left;
+}
+
+.infoAvatar {
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 1em;
+  width: 30px;
+  height: 30px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-right: 1em;
 }
 
-.App-link {
-  color: #61dafb;
-}
+/*
+Fonts:
+Roboto Medium
+Roboto Medium
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+Dunkelblau: #2E4674
+Hellblau: #DAE1EC
+Rot: #F46456
+Grau (InfoBox) : #F6F7F9
+Hannoversche Hellbau: #3DB7E4
+
+
+Überschrift:
+font-family: Roboto;
+  font-size: 26px;
+
+
+InfoBox:
+ font-size: 15px;
+
+Preis:
+  font-size: 19.8px;
+  */

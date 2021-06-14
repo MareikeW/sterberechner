@@ -7,18 +7,13 @@ import Versicherungssumme from "./pages/versicherungssumme";
 import Ergebnis from "./pages/ergebnis";
 
 function App() {
-  const [geburtstag, setGeburtstag] = useState("06");
-  const [geburtsmonat, setGeburtsmonat] = useState("06");
-  const [geburtsjahr, setGeburtsjahr] = useState("1950");
+  const [geburtstag, setGeburtstag] = useState();
+  const [geburtsmonat, setGeburtsmonat] = useState();
+  const [geburtsjahr, setGeburtsjahr] = useState();
 
   const [versicherungssumme, setVersicherungssumme] = useState(8000);
 
-  /*
-    console.log("Geburtstag: " + geburtstag);
-    console.log("Geburtsmonat: " + geburtsmonat);
-    console.log("Geburtsjahr: " + geburtsjahr);
-*/
-
+  
 
   return (
       <div>
@@ -52,9 +47,9 @@ function App() {
         </Router>
 
         <div>
-          {geburtstag}.{geburtsmonat}.{geburtsjahr}
+          {/*{geburtstag}.{geburtsmonat}.{geburtsjahr}
           <br />
-          {versicherungssumme}
+  {versicherungssumme}*/}
         </div>
       </div>
   );

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Ergebnis = ({ summe, datum }) => {
     const [betrag, setBetrag] = useState();
+    const [zahlungsweise, setZahlungsweise] = useState("monatlich");
 
     useEffect(() => {
         const options = {
@@ -33,17 +34,50 @@ const Ergebnis = ({ summe, datum }) => {
         .then((data) => setBetrag(data))
     }, [summe, datum])
 
+    function getBetrag() {
+      if (betrag) {
+        let result;
+
+        switch(zahlungsweise) {
+          case "jährlich":
+            result = betrag.hauptprodukt.sterbegeld.beitraege.jaehrlich.netto;
+            break;
+          default:
+            result = betrag.hauptprodukt.sterbegeld.beitraege.monatlich.netto;
+            break;
+        }
+  
+        return result.toLocaleString("de-DE", {style: "currency", currency: "EUR"});
+      }    
+    }
+
     return (
         <div>
-            <Link to="/rechner/versicherungssumme">
-                <button>&#x3C;</button>
-            </Link>
-            {summe}
-            <br />
-            {datum}
-            <br />
-            {betrag && betrag.hauptprodukt.sterbegeld.beitraege.monatlich.netto}
-            <pre>{JSON.stringify(betrag, null, 2)}</pre>
+            <div className="button-zurueck__container">
+              <Link to="/rechner/versicherungssumme">
+                  <button className="button__zurueck">&#x3C;</button>
+              </Link>
+            </div>
+            <p>
+              <strong>
+                {betrag ? getBetrag() : "Lädt..."}
+              </strong>
+            </p>
+            <p>{zahlungsweise}</p>
+            {/*<pre>{JSON.stringify(betrag, null, 2)}</pre>*/}
+            <div>
+              <h1>Ihre Sterbegeldversicherung</h1>
+              <p>Sie zahlen <strong>{zahlungsweise} {getBetrag()} zur Entlastung Ihrer Hinterbliebenen.</strong></p>
+              <div>
+                <label htmlFor="zahlungsweise" >Zahlungsweise</label>
+                <select 
+                  id="zahlungsweise"
+                  onChange={(event) => setZahlungsweise(event.target.value)}>
+                  <option>monatlich</option>
+                  <option>jährlich</option>
+                </select>
+              </div>
+            </div>
         </div>
     )
 }
