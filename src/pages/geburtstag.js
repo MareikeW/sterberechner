@@ -51,7 +51,7 @@ const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
                     type="number"
                     placeholder="TT" 
                     value={tag} 
-                    className={`geburtstags__input--kurz`} 
+                    className={`geburtstags__input--kurz ${tag ? "input--background" : ""}`} 
                     onChange={event => isValidDay(event)} 
                     required
                 />
@@ -60,7 +60,7 @@ const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
                     type="number" 
                     placeholder="MM"
                     value={monat} 
-                    className={`geburtstags__input--kurz`} 
+                    className={`geburtstags__input--kurz ${monat ? "input--background" : ""}`} 
                     onChange={event => isValidMonth(event)} 
                     required
                 />
@@ -69,6 +69,7 @@ const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
                     type="number" 
                     placeholder="JJJJ" 
                     value={jahr} 
+                    className={`${jahr ? "input--background" : ""}`}
                     onChange={event => isValidYear(event)} 
                     max="1971"
                     required

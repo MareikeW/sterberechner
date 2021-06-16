@@ -12,6 +12,7 @@ h1 {
   color: rgba(44, 56, 130, 0.5);
   font-weight: 400;
   font-size: 26px; 
+  margin-top: 100px;
 }
 
 
@@ -63,7 +64,7 @@ h1 {
   text-align: center;
   padding: 0.8em;
   border-radius: 0.5em;
-  border: 2px solid #2E4674;
+  border: 3px solid #2E4674;
   color:#2E4674;
   font-weight: bold;
   font-size: 1.2em;
@@ -76,6 +77,10 @@ h1 {
 
 .geburtstags__form .geburtstags__input--kurz {
   padding: 1em 0.2em;
+}
+
+.input--background {
+  background-color: #DAE1EC;
 }
 
 .input__error {
@@ -96,7 +101,7 @@ h1 {
       Infobox
 ========================*/
 .info__container {
-  width: 500px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
   margin: 4em auto;
@@ -104,11 +109,16 @@ h1 {
 }
 
 .info-avatar {
-  border: 1px solid black;
+  background-color: #DAE1EC;
   border-radius: 50%;
-  padding: 1em;
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
+}
+
+.info-avatar img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,8 +126,31 @@ h1 {
 }
 
 .info-text {
-  background-color: #F6F7F9;
   font-size: 15px;
+  line-height: 1.5em;
+  text-align: left;
+  color: #2E4674;
+}
+
+.sprechblase {
+  position: relative;
+  width: 340px;
+  background-color: #F6F7F9;
+  border-radius: 10px;
+  padding: 0 16px;
+}
+
+.sprechblase:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #F6F7F9;
+  border-bottom: 20px solid transparent;
+  left: -10px;
+  top: 0;
 }
 
 /*
