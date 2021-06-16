@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import Infobox from "../components/Infobox";
 
 const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
+    
     function isValid() {
-        const geburtsDatum = new Date(jahr, Number(monat) - 1, tag);
+        const geburtsDatum = new Date(jahr, Number(monat) + 1.4, Number(tag) - 40);
         const today = new Date();
 
-        let alter = (today.getTime() - geburtsDatum.getTime())/(1000 * 60 * 60 * 24 * 365);
+        const alter = (today.getTime() - geburtsDatum.getTime())/(1000 * 60 * 60 * 24 * 365);
         
-        return (alter >= 50 && alter <= 80);
+        return (alter >= 49.9769 && alter <= 80);
     }
 
     function isValidDay(event) {
@@ -34,13 +35,11 @@ const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
     function isValidYear(event) {
         let year = event.target.value;
 
-        if (year.length === 4) {
-            if (year >= 1941 && year <= 1971) {
-                setJahr(year);
-            } else {
-                setJahr("");
-            }
-        } 
+        if (year >= 1972) {
+            setJahr("")
+        } else {
+            setJahr(year)
+        }
     }
 
     return (
@@ -70,8 +69,7 @@ const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
                     type="number" 
                     placeholder="JJJJ" 
                     value={jahr} 
-                    onChange={isValidYear} 
-                    min="1941"
+                    onChange={event => isValidYear(event)} 
                     max="1971"
                     required
                 />
