@@ -6,12 +6,14 @@ import Infobox from "../components/Infobox";
 const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
     
     function isValid() {
-        const geburtsDatum = new Date(jahr, Number(monat) + 1.4, Number(tag) - 40);
-        const today = new Date();
-
-        const alter = (today.getTime() - geburtsDatum.getTime())/(1000 * 60 * 60 * 24 * 365);
-        
-        return (alter >= 49.9769 && alter <= 80);
+        if (tag && monat && jahr) {
+            const geburtsDatum = new Date(jahr, Number(monat) + 1.4, Number(tag) - 40);
+            const today = new Date();
+    
+            const alter = (today.getTime() - geburtsDatum.getTime())/(1000 * 60 * 60 * 24 * 365);
+            
+            return (alter >= 49.9769 && alter <= 80);
+        }   
     }
 
     function isValidDay(event) {
