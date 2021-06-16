@@ -13,6 +13,36 @@ const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
         return (alter >= 50 && alter <= 80);
     }
 
+    function isValidDay(event) {
+        let day = event.target.value;
+        if (day >= 1 && day <= 31) {
+            setTag(day)
+        } else {
+            setTag("");
+        }
+    }
+
+    function isValidMonth(event) {
+        let month = event.target.value;
+        if (month >= 1 && month <= 12) {
+            setMonat(month);
+        } else {
+            setMonat("");
+        }
+    }
+
+    function isValidYear(event) {
+        let year = event.target.value;
+
+        if (year.length === 4) {
+            if (year >= 1941 && year <= 1971) {
+                setJahr(year);
+            } else {
+                setJahr("");
+            }
+        } 
+    }
+
     return (
         <div className="geburtstags__container">
             <h1>Zum Start benötigen wir <strong>Ihr Geburtsdatum</strong></h1>
@@ -22,10 +52,8 @@ const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
                     type="number"
                     placeholder="TT" 
                     value={tag} 
-                    className={`geburtstags__input--kurz ${(tag >= 1 && tag <= 31) ? console.log("kein error") : console.log("error")}`}
-                    min="1" 
-                    max="31" 
-                    onChange={event => setTag(event.target.value)} 
+                    className={`geburtstags__input--kurz`} 
+                    onChange={event => isValidDay(event)} 
                     required
                 />
 
@@ -33,21 +61,18 @@ const Geburtstag = ({ tag, monat, jahr, setTag, setMonat, setJahr }) => {
                     type="number" 
                     placeholder="MM"
                     value={monat} 
-                    className={`geburtstags__input--kurz ${(monat >= 1 && monat <= 12) ? console.log("kein error") : console.log("error")}`} 
-                    min="1" 
-                    max="12"
-                    onChange={event => setMonat(event.target.value)} 
+                    className={`geburtstags__input--kurz`} 
+                    onChange={event => isValidMonth(event)} 
                     required
                 />
 
                 <input 
                     type="number" 
                     placeholder="JJJJ" 
-                    value={jahr}
-                    className={`${(jahr >= 1940 && jahr <= 1971) ? console.log("kein error") : console.log("error")}`} 
+                    value={jahr} 
+                    onChange={isValidYear} 
                     min="1941"
-                    max="1971" 
-                    onChange={event => setJahr(event.target.value)} 
+                    max="1971"
                     required
                 />
             </form>

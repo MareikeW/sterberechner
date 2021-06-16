@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 * {
-  font-family: 'Roboto', sans-serif; 
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -11,6 +11,7 @@ body {
 h1 {
   color: rgba(44, 56, 130, 0.5);
   font-weight: 400;
+  font-size: 26px; 
 }
 
 
@@ -31,7 +32,7 @@ h1 {
   border: none;
   border-radius: 10px;
   color: #FFFFFF;
-  background-color: salmon;
+  background-color: #F46456;
   padding: 1em 3em;
   font-size: 1.2em;
 }
@@ -60,12 +61,17 @@ h1 {
 .geburtstags__form input {
   width: 100px;
   text-align: center;
-  padding: 1em;
-  border-radius: 1em;
-  border: 2px solid rgb(44, 56, 130);
-  color:rgb(44, 56, 130);
+  padding: 0.8em;
+  border-radius: 0.5em;
+  border: 2px solid #2E4674;
+  color:#2E4674;
   font-weight: bold;
   font-size: 1.2em;
+}
+
+.geburtstags__form input::placeholder {
+  color: lightgray;
+  font-weight: 400;
 }
 
 .geburtstags__form .geburtstags__input--kurz {
@@ -74,6 +80,15 @@ h1 {
 
 .input__error {
   border-color: red;
+}
+
+
+
+/*=======================
+      Ergebnis
+========================*/
+.betrag {
+  font-size: 19.8px;
 }
 
 
@@ -88,7 +103,7 @@ h1 {
   text-align: left;
 }
 
-.infoAvatar {
+.info-avatar {
   border: 1px solid black;
   border-radius: 50%;
   padding: 1em;
@@ -100,26 +115,17 @@ h1 {
   margin-right: 1em;
 }
 
+.info-text {
+  background-color: #F6F7F9;
+  font-size: 15px;
+}
+
 /*
 Fonts:
-Roboto Medium
-Roboto Medium
-
 Dunkelblau: #2E4674
 Hellblau: #DAE1EC
 Rot: #F46456
-Grau (InfoBox) : #F6F7F9
 Hannoversche Hellbau: #3DB7E4
 
 
-Überschrift:
-font-family: Roboto;
-  font-size: 26px;
-
-
-InfoBox:
- font-size: 15px;
-
-Preis:
-  font-size: 19.8px;
   */

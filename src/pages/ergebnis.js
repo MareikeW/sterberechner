@@ -58,7 +58,7 @@ const Ergebnis = ({ summe, datum }) => {
                   <button className="button__zurueck">&#x3C;</button>
               </Link>
             </div>
-            <p>
+            <p className="betrag">
               <strong>
                 {betrag ? getBetrag() : "Lädt..."}
               </strong>
